@@ -66,3 +66,12 @@ services:
       - kapacitor
       - influxdb
       - telegraf
+
+  dashboard: 
+    image: "grafana/grafana"
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./grafana/data:/var/lib/grafana
+    depends_on: 
+      - "influxdb"

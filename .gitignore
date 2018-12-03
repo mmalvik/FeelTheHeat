@@ -8,6 +8,7 @@ chronograf/
 inflxdb/
 kapacitor/
 telegraf/
+grafana/
 
 # C extensions
 *.so
