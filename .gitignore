@@ -3,6 +3,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Docker
+chronograf/
+inflxdb/
+kapacitor/
+telegraf/
+
 # C extensions
 *.so
 
