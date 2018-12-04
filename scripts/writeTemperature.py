@@ -1,28 +1,33 @@
 from influxdb import InfluxDBClient
 
 print("Starting registration...")
-databaseName = 'Temperatures'
+databaseName = 'FeelTheHeat'
 
 client = InfluxDBClient(host='localhost', port=8086, database=databaseName)
 client.create_database(databaseName)
 
+def funcname():
+    return 18
+
+
 json_body = [
     {
-        "measurement": "Temperature",
+        "measurement": "IndoorClimate",
         "tags": {
             "sensor": "DHT_22",
         },
         "fields": {
-            "temperature": 15
+            "temperature": funcname(),
+            "humidity": 38
         }
     },
     {
-        "measurement": "Temperature",
+        "measurement": "IndoorClimate",
         "tags": {
             "sensor": "DS18B20",
         },
         "fields": {
-            "temperature": 16
+            "temperature": 24
         }
     }
 ]

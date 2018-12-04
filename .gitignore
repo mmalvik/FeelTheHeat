@@ -10,6 +10,9 @@ kapacitor/
 telegraf/
 grafana/
 
+# VS Code
+.vscode/
+
 # C extensions
 *.so
 
