@@ -1,7 +1,6 @@
 import Adafruit_DHT as dht
 import os
 import glob
-import datetime
 
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
@@ -26,18 +25,13 @@ def read_ds18b20_temp():
     temperature = float(temp) / 1000.0
     return temperature
 
-def read_DHT22():
+def read_dht22():
     sensorHumidity,sensorTemperature = dht.read_retry(dht.DHT22, 23)
     humidity = round(sensorHumidity, 3)
     temperature = round(sensorTemperature, 3)
     return (humidity, temperature)
 
-def UtcNowSeconds():
-    now = datetime.datetime.utcnow()
-    return int(now.strftime("%s"))
-
-print(UtcNowSeconds())
-print("DHT22 data:")
-print(read_DHT22())
-print("DS temp:")
-print(read_ds18b20_temp())
+# print("DHT22 data:")
+# print(read_dht22())
+# print("DS temp:")
+# print(read_ds18b20_temp())
