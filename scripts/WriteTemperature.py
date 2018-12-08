@@ -17,7 +17,7 @@ def utc_now_seconds():
 
 def create_influx_json():
     timestamp = utc_now_seconds()
-    temperature,humidity = read_dht22()
+    humidity,temperature = read_dht22()
     return [
         {
             "measurement": "IndoorClimate",
@@ -47,8 +47,8 @@ print("Starting registration...")
 db, u, p = read_config()
 print(db, u, p)
 
-# client = InfluxDBClient(host='localhost', port=8086, database=db, username=u, password=p)
-# client.create_database(db)
+client = InfluxDBClient(host='40.87.130.203', port=8086, database=db, username=u, password=p)
+client.create_database(db)
 
 print(create_influx_json())
 
